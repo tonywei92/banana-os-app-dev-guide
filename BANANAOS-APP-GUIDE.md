@@ -86,7 +86,7 @@ What's in the starter:
 
 ## Input
 
-![The same map of the handheld: the buttons and the names SDL gives them](docs/img/handheld-map.svg)
+*The buttons and their SDL names are on the [handheld map](#the-two-panels) above.*
 
 - **Nintendo layout.** SDL names face buttons by position, Xbox-style: the handheld's **A (east) arrives as
   `SDL_CONTROLLER_BUTTON_B`**, and B (south) as SDL's A. **X and Y arrive under their printed names** (not swapped).
