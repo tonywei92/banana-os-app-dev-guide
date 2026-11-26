@@ -1,0 +1,47 @@
+{
+ "id": "myapp",
+ "name": "My App",
+ "tile": "My App",
+ "kind": "app",
+ "developer": "<your-github-user>",
+ "genre": "Tools",
+ "players": "1",
+ "releasedate": "20260101T000000",
+ "accent": "#8a6a10",
+ "summary": "One line: what it does, on which screen.",
+ "description": "A paragraph: what the app does on the two screens, its controls (buttons and touch), what it needs on the card, where its settings live (the card's home/.config/myapp, kept when the app is removed or updated), and anything it can't do (decoding is done by the CPU). Name the licence.",
+ "icon": "apps/myapp/icon.png",
+ "screenshots": [
+  "apps/myapp/screen.png"
+ ],
+ "devices": [
+  "rgds",
+  "rgds-plus"
+ ],
+ "release": {
+  "github": "<your-github-user>/<your-repo>",
+  "tag_prefix": "v",
+  "asset": "MyApp-{version}-aarch64.zip"
+ },
+ "package": {
+  "root": "MyApp",
+  "dest": "/storage/.config/rocknixds/myapp",
+  "check": "bin/my-app",
+  "executable": [
+   "launch.sh",
+   "bin/my-app"
+  ],
+  "version_file": "VERSION",
+  "version_match": "([0-9][0-9.]*)"
+ },
+ "menu": {
+  "system": "myapp",
+  "folder": "/storage/.config/rocknixds/apps/myapp",
+  "entry": "MyApp.sh",
+  "launch": "launch.sh",
+  "ports": false,
+  "media": {
+   "image": "share/myapp/myapp-tile.png"
+  }
+ }
+}
