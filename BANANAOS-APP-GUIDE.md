@@ -1,4 +1,4 @@
-# Making an app for BananaOS on the RG DS Plus
+# Making an app for BananaOS on the RG DS and RG DS Plus
 
 A field guide for writing a native app for [BananaOS](https://github.com/JorreFog/BananaLinux) on the Anbernic RG DS
 and RG DS Plus, and the starter in this folder that follows it. Everything here was learned building a real app, a
