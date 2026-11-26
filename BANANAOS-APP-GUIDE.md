@@ -68,6 +68,8 @@ What's in the starter:
 
 ## The two panels
 
+![The handheld: top panel above bottom panel, each button with the name SDL gives it](docs/img/handheld-map.svg)
+
 - **On the handheld SDL's video driver is KMSDRM**, each panel is one SDL display, and each window fills one
   (`SDL_WINDOW_FULLSCREEN_DESKTOP`). *Why no X or Wayland:* there is none on BananaOS; SDL draws straight to the panels.
 - **The top panel is display 0** thanks to `SDL_KMSDRM_FIRST`; the starter also matches the display name against
@@ -83,6 +85,8 @@ What's in the starter:
   is a black panel.
 
 ## Input
+
+![The same map of the handheld: the buttons and the names SDL gives them](docs/img/handheld-map.svg)
 
 - **Nintendo layout.** SDL names face buttons by position, Xbox-style: the handheld's **A (east) arrives as
   `SDL_CONTROLLER_BUTTON_B`**, and B (south) as SDL's A. **X and Y arrive under their printed names** (not swapped).
@@ -132,6 +136,8 @@ What's in the starter:
   stop.
 
 ## Keep running with the lid shut
+
+![The lid-sleep rule: write the note, set lid_sleep = no, SIGHUP; undo after 3 s, on quit or at start; sleep-now if the lid is still shut](docs/img/lid-sleep-flow.svg)
 
 For an app that must go on in a pocket (music, a download): BananaOS's lid sleep, turned off only while needed
 (`src/lidsleep.*`).
@@ -300,6 +306,8 @@ server jar) as its manga engine. What was measured on the RG DS (981 MB RAM, no 
   from a thread, so a quit never waits.
 
 ## Building for aarch64 in Docker
+
+![From edit to the handheld: cmake and app-test, build-bundle.sh in Docker, push-handheld.sh over SSH, then log.txt and crash.log](docs/img/build-deploy.svg)
 
 - `packaging/build-bundle.sh` runs itself in an **arm64 Debian 12** container (`--platform linux/arm64`: native on
   Apple silicon, emulated elsewhere). Docker must be running.

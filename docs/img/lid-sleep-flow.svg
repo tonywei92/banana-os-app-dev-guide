@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" role="img" aria-labelledby="t d">
+<title id="t">Keeping the app running with the lid shut: LidGuard's flow</title>
+<desc id="d">Borrow the lid_sleep setting while the app needs to stay awake, and give it back after a 3 second grace, on quit, or at the next start; ask for the sleep yourself if the lid is still shut.</desc>
+<style>
+text{font:13px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:#6f7c8c}
+.b{font-weight:600;font-size:14px}
+.box{fill:#78869a;fill-opacity:.12;stroke:#6f7c8c;stroke-width:1.5}
+.acc{fill:#3b82f6;fill-opacity:.2;stroke:#3b82f6;stroke-width:1.5}
+.ln{stroke:#6f7c8c;stroke-width:1.5;fill:none}
+.d{stroke-dasharray:4 4}
+.h{font-weight:600;font-size:14px;fill:#6f7c8c;letter-spacing:.3px}
+.m{text-anchor:middle}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1 L10 5 L0 9 z" fill="#6f7c8c"/></marker></defs>
+
+<!-- column 1: borrow -->
+<text class="h" x="20" y="28">1. The app needs to stay awake</text>
+<rect class="acc" x="20" y="45" width="270" height="56" rx="10"/>
+<text class="b m" x="155" y="68">Needs to stay awake now</text>
+<text class="m" x="155" y="87">and lid sleep is on</text>
+<rect class="box" x="20" y="130" width="270" height="62" rx="10"/>
+<text class="b m" x="155" y="154">Write the note first</text>
+<text class="m" x="155" y="173">lid-restore: old line, line written</text>
+<rect class="box" x="20" y="221" width="270" height="62" rx="10"/>
+<text class="b m" x="155" y="245">Write lid_sleep = no</text>
+<text class="m" x="155" y="264">temp file, fsync, rename</text>
+<rect class="box" x="20" y="312" width="270" height="62" rx="10"/>
+<text class="b m" x="155" y="336">SIGHUP bananad</text>
+<text class="m" x="155" y="355">it rereads the conf: the lid only darkens</text>
+<path class="ln" d="M155 101 V128" marker-end="url(#a)"/>
+<path class="ln" d="M155 192 V219" marker-end="url(#a)"/>
+<path class="ln" d="M155 283 V310" marker-end="url(#a)"/>
+<text x="20" y="410">Why the note first: the power can</text>
+<text x="20" y="428">go at any moment, and the note is</text>
+<text x="20" y="446">what lets the next start undo it.</text>
+
+<!-- column 2: give back -->
+<text class="h" x="310" y="28">2. The undo (and the sleep after it)</text>
+<rect class="acc" x="310" y="45" width="270" height="56" rx="10"/>
+<text class="b m" x="445" y="68">No longer needed for 3 s</text>
+<text class="m" x="445" y="87">a gap between tracks is not the end</text>
+<rect class="box" x="310" y="125" width="270" height="66" rx="10"/>
+<text class="b m" x="445" y="152">Is the conf line still</text>
+<text class="b m" x="445" y="171">byte for byte ours?</text>
+<path class="ln" d="M445 101 V123" marker-end="url(#a)"/>
+<path class="ln" d="M445 191 V213 H377 V237" marker-end="url(#a)"/>
+<path class="ln" d="M445 213 H513 V237" marker-end="url(#a)"/>
+<text class="m" x="395" y="208">yes</text>
+<text class="m" x="495" y="208">no</text>
+<rect class="box" x="310" y="239" width="132" height="96" rx="10"/>
+<text class="m" x="376" y="262">Put the old line</text>
+<text class="m" x="376" y="280">back (or remove</text>
+<text class="m" x="376" y="298">a file we made),</text>
+<text class="m" x="376" y="316">delete the note</text>
+<rect class="box" x="448" y="239" width="132" height="96" rx="10"/>
+<text class="m" x="514" y="262">Leave the file:</text>
+<text class="m" x="514" y="280">the user's change</text>
+<text class="m" x="514" y="298">wins. Only the</text>
+<text class="m" x="514" y="316">note goes</text>
+<path class="ln" d="M376 335 V353 H445 V371" marker-end="url(#a)"/>
+<path class="ln" d="M514 335 V353 H445"/>
+<rect class="box" x="310" y="373" width="270" height="62" rx="10"/>
+<text class="b m" x="445" y="397">Lid still shut and</text>
+<text class="b m" x="445" y="416">lid sleep on again?</text>
+<path class="ln" d="M445 435 V463" marker-end="url(#a)"/>
+<text x="453" y="454">yes</text>
+<rect class="acc" x="310" y="465" width="270" height="76" rx="10"/>
+<text class="b m" x="445" y="489">Ask for the sleep</text>
+<text class="m" x="445" y="508">create /run/banana/sleep-now,</text>
+<text class="m" x="445" y="526">then SIGHUP bananad</text>
+<path class="ln" d="M580 404 H606" marker-end="url(#a)"/>
+<text x="612" y="409">no: done</text>
+
+<!-- column 3: the other ways in -->
+<text class="h" x="630" y="28">3. Other ways into the undo</text>
+<rect class="box" x="630" y="45" width="250" height="56" rx="10"/>
+<text class="b m" x="755" y="68">On quit</text>
+<text class="m" x="755" y="87">undo at once, no grace</text>
+<rect class="box" x="630" y="125" width="250" height="76" rx="10"/>
+<text class="b m" x="755" y="148">At start</text>
+<text class="m" x="755" y="167">a leftover note (power loss,</text>
+<text class="m" x="755" y="185">SIGKILL): undo before anything</text>
+<rect class="box" x="630" y="225" width="250" height="76" rx="10"/>
+<text class="b m" x="755" y="248">After any exit</text>
+<text class="m" x="755" y="267">launch.sh runs</text>
+<text class="m" x="755" y="285">my-app --lid-restore</text>
+<path class="ln d" d="M630 73 H605 V158 H582" marker-end="url(#a)"/>
+<path class="ln d" d="M630 163 H605"/>
+<path class="ln d" d="M630 263 H605 V158"/>
+<text x="630" y="345">Why the grace: with the lid shut,</text>
+<text x="630" y="363">an undo between two tracks would</text>
+<text x="630" y="381">sleep the handheld mid-playlist.</text>
+<text x="630" y="480">If the line was changed meanwhile</text>
+<text x="630" y="498">in BananaOS Settings, that choice</text>
+<text x="630" y="516">is never overwritten.</text>
+</svg>

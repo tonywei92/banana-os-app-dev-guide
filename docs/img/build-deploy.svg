@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 690" width="900" height="690" role="img" aria-labelledby="t d">
+<title id="t">From an edit to the app running on the handheld</title>
+<desc id="d">On the computer: edit, cmake build and app-test, then packaging/build-bundle.sh in an arm64 Docker container, then tools/push-handheld.sh over SSH. On the handheld: run the app and read log.txt or crash.log.</desc>
+<style>
+text{font:13px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:#6f7c8c}
+.b{font-weight:600;font-size:14px}
+.c{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.box{fill:#78869a;fill-opacity:.12;stroke:#6f7c8c;stroke-width:1.5}
+.acc{fill:#3b82f6;fill-opacity:.2;stroke:#3b82f6;stroke-width:1.5}
+.band{fill:none;stroke:#6f7c8c;stroke-width:1.5;stroke-dasharray:6 5}
+.ln{stroke:#6f7c8c;stroke-width:1.5;fill:none}
+.h{font-weight:600;font-size:14px;letter-spacing:.3px}
+.m{text-anchor:middle}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 1 L10 5 L0 9 z" fill="#6f7c8c"/></marker></defs>
+
+<!-- computer -->
+<rect class="band" x="8" y="8" width="884" height="500" rx="14"/>
+<text class="h" x="24" y="32">Your computer</text>
+
+<rect class="box" x="24" y="48" width="170" height="56" rx="10"/>
+<text class="b m" x="109" y="72">Edit</text>
+<text class="m" x="109" y="91">the source</text>
+<rect class="box" x="234" y="48" width="410" height="56" rx="10"/>
+<text class="b m" x="439" y="72">cmake build</text>
+<text class="m c" x="439" y="91" style="font-size:13px">cmake -S . -B build &amp;&amp; cmake --build build -j</text>
+<rect class="box" x="684" y="48" width="192" height="56" rx="10"/>
+<text class="b m c" x="780" y="72">app-test</text>
+<text class="m" x="780" y="91">the pure parts, fast</text>
+<path class="ln" d="M194 76 H232" marker-end="url(#a)"/>
+<path class="ln" d="M644 76 H682" marker-end="url(#a)"/>
+
+<!-- docker -->
+<rect class="acc" x="24" y="148" width="440" height="200" rx="12"/>
+<text class="b c" x="40" y="174">packaging/build-bundle.sh</text>
+<text x="40" y="195">runs itself in an arm64 Debian 12 container (Docker)</text>
+<text x="40" y="221">- cached image, tagged by a hash of its Dockerfile</text>
+<text x="40" y="240">- the build dir .cache/build is kept between runs</text>
+<text x="40" y="259">- ccache in .cache/ccache</text>
+<text x="40" y="278">- a failed compile stops it: no bundle</text>
+<text class="c" x="40" y="305">--quick</text><text x="108" y="305">bundle only: no tests, no zip</text>
+<text class="c" x="40" y="327">--clean</text><text x="108" y="327">the build from scratch</text>
+<path class="ln" d="M780 104 V126 H244 V146" marker-end="url(#a)"/>
+
+<rect class="box" x="520" y="148" width="356" height="56" rx="10"/>
+<text class="b c" x="536" y="172">dist/ports/MyApp/</text>
+<text x="536" y="191">the bundle for the card or the push</text>
+<rect class="box" x="520" y="218" width="356" height="56" rx="10"/>
+<text class="b c" x="536" y="242">dist/MyApp-&lt;version&gt;-aarch64.zip</text>
+<text x="536" y="261">the release zip (not made by --quick)</text>
+<rect class="box" x="520" y="288" width="356" height="56" rx="10"/>
+<text class="b c" x="536" y="312">dist/symbols/my-app-&lt;version&gt;</text>
+<text x="536" y="331">unstripped, to read crash.log</text>
+<path class="ln" d="M464 176 H518" marker-end="url(#a)"/>
+<path class="ln" d="M464 246 H518" marker-end="url(#a)"/>
+<path class="ln" d="M464 316 H518" marker-end="url(#a)"/>
+
+<!-- push -->
+<rect class="acc" x="24" y="390" width="852" height="100" rx="12"/>
+<text class="b c" x="40" y="414">tools/push-handheld.sh root@&lt;handheld-ip&gt;</text>
+<text x="40" y="436">1  try port 22 up to 5 times: the Wi-Fi naps (nc -z)</text>
+<text x="40" y="455">2  copy the installed folder on the handheld, send only changed files (rsync, or md5 sums + tar over ssh)</text>
+<text x="40" y="474">3  quit the app cleanly (SIGTERM, up to 5 s), then swap the folders; the old one stays as MyApp.old</text>
+<path class="ln" d="M124 344 V388" marker-end="url(#a)"/>
+<text x="136" y="372" style="font-size:13px">the bundle from --quick</text>
+
+<!-- handheld -->
+<rect class="band" x="8" y="552" width="884" height="130" rx="14"/>
+<text class="h" x="24" y="576">The handheld</text>
+<rect class="box" x="24" y="592" width="250" height="72" rx="10"/>
+<text class="b m" x="149" y="616">Run</text>
+<text class="m" x="149" y="635">reopen it from the Ports shelf</text>
+<text class="m" x="149" y="653">(or the Store)</text>
+<rect class="box" x="314" y="592" width="290" height="72" rx="10"/>
+<text class="b m c" x="459" y="616">&lt;state&gt;/log.txt</text>
+<text class="m" x="459" y="635">the run's log; log.prev.txt is</text>
+<text class="m" x="459" y="653">the one before, launcher.txt the exit</text>
+<rect class="box" x="644" y="592" width="232" height="72" rx="10"/>
+<text class="b m c" x="760" y="616">&lt;state&gt;/crash.log</text>
+<text class="m" x="760" y="635">a backtrace after a crash;</text>
+<text class="m" x="760" y="653">read it with dist/symbols</text>
+<path class="ln" d="M460 490 V520 H149 V590" marker-end="url(#a)"/>
+<text x="470" y="530" style="font-size:13px">over SSH</text>
+<path class="ln" d="M274 628 H312" marker-end="url(#a)"/>
+<path class="ln" d="M604 628 H642" marker-end="url(#a)"/>
+</svg>

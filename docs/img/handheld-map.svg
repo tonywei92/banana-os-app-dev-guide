@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 610" width="900" height="610" role="img" aria-labelledby="t d">
+<title id="t">The RG DS and RG DS Plus: two panels and the buttons with their SDL names</title>
+<desc id="d">Clamshell with the top panel (SDL display 0, no touch) above the bottom panel (display 1, touchscreen), and each control labelled with the name SDL gives it.</desc>
+<style>
+text{font:13px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:#6f7c8c}
+.b{font-weight:600;font-size:14px}
+.body{fill:#78869a;fill-opacity:.12;stroke:#6f7c8c;stroke-width:1.5}
+.scr{fill:#3b82f6;fill-opacity:.2;stroke:#3b82f6;stroke-width:1.5}
+.key{fill:#78869a;fill-opacity:.25;stroke:#6f7c8c;stroke-width:1.5}
+.ln{stroke:#6f7c8c;stroke-width:1;fill:none;stroke-dasharray:3 3}
+.k{text-anchor:middle;font-weight:600;font-size:13px}
+.r{text-anchor:end}
+</style>
+<!-- top half -->
+<rect class="body" x="270" y="40" width="360" height="235" rx="16"/>
+<rect class="scr" x="320" y="55" width="260" height="205" rx="6"/>
+<text class="k" x="450" y="152">top panel</text>
+<text class="k" x="450" y="172">display 0</text>
+<!-- hinge -->
+<rect class="body" x="320" y="275" width="260" height="30" rx="6"/>
+<!-- bottom half -->
+<rect class="body" x="270" y="305" width="360" height="285" rx="16"/>
+<rect class="scr" x="320" y="320" width="260" height="205" rx="6"/>
+<text class="k" x="450" y="418">bottom panel</text>
+<text class="k" x="450" y="438">display 1 (touch)</text>
+<!-- shoulders and edge keys -->
+<rect class="key" x="284" y="34" width="56" height="12" rx="6"/>
+<rect class="key" x="560" y="34" width="56" height="12" rx="6"/>
+<rect class="key" x="264" y="130" width="12" height="44" rx="5"/>
+<circle class="key" cx="630" cy="150" r="8"/>
+<!-- left controls -->
+<circle class="key" cx="295" cy="400" r="17"/>
+<circle cx="295" cy="400" r="5" fill="#6f7c8c"/>
+<rect class="key" x="277" y="485" width="36" height="13" rx="6"/>
+<!-- face buttons -->
+<circle class="key" cx="605" cy="382" r="9"/><text class="k" x="605" y="387">X</text>
+<circle class="key" cx="623" cy="400" r="9"/><text class="k" x="623" y="405">A</text>
+<circle class="key" cx="605" cy="418" r="9"/><text class="k" x="605" y="423">B</text>
+<circle class="key" cx="587" cy="400" r="9"/><text class="k" x="587" y="405">Y</text>
+<rect class="key" x="587" y="485" width="36" height="13" rx="6"/>
+<!-- F -->
+<circle class="key" cx="450" cy="558" r="11"/><text class="k" x="450" y="563">F</text>
+
+<!-- left labels -->
+<path class="ln" d="M262 40 H284"/>
+<text class="r b" x="255" y="45">L2</text>
+<text class="r" x="255" y="63">AXIS_TRIGGERLEFT, 0..32767</text>
+<text class="r" x="255" y="80">an axis the starter turns into a button</text>
+<text class="r b" x="255" y="108">Top panel: SDL display 0</text>
+<text class="r" x="255" y="126">the main screen, no touch</text>
+<path class="ln" d="M262 152 H264"/>
+<text class="r b" x="255" y="152">Volume keys</text>
+<text class="r" x="255" y="170">bananad's, not yours:</text>
+<text class="r" x="255" y="187">it writes /run/banana/osd</text>
+<text class="r b" x="255" y="330">Bottom panel: SDL display 1</text>
+<text class="r" x="255" y="348">the touchscreen, read from evdev</text>
+<path class="ln" d="M262 400 H276"/>
+<text class="r b" x="255" y="392">L3</text>
+<text class="r" x="255" y="410">SDL_CONTROLLER_BUTTON_LEFTSTICK</text>
+<text class="r" x="255" y="427">the stick: LEFTX / LEFTY</text>
+<text class="r" x="255" y="444">no right stick</text>
+<path class="ln" d="M262 492 H276"/>
+<text class="r b" x="255" y="497">Select</text>
+
+<!-- right labels -->
+<path class="ln" d="M618 40 H645"/>
+<text class="b" x="650" y="45">R2</text>
+<text x="650" y="63">AXIS_TRIGGERRIGHT, 0..32767</text>
+<path class="ln" d="M638 150 H645"/>
+<text class="b" x="650" y="140">Power</text>
+<text x="650" y="158">bananad sleeps the handheld</text>
+<text x="650" y="175">(SIGSTOP now, SIGCONT on wake)</text>
+<path class="ln" d="M633 400 H645"/>
+<text class="b" x="650" y="352">Face buttons (Nintendo layout)</text>
+<text x="650" y="374">A (east)   arrives as ..._BUTTON_B</text>
+<text x="650" y="392">B (south) arrives as ..._BUTTON_A</text>
+<text x="650" y="410">X arrives as ..._BUTTON_X</text>
+<text x="650" y="428">Y arrives as ..._BUTTON_Y</text>
+<text x="650" y="446">Map by position, not by name.</text>
+<path class="ln" d="M625 492 H645"/>
+<text class="b" x="650" y="497">Start</text>
+<path class="ln" d="M461 558 H645"/>
+<text class="b" x="650" y="540">F = GUIDE, shared with the OS</text>
+<text x="650" y="558">SDL_CONTROLLER_BUTTON_GUIDE</text>
+<text x="650" y="575">F + Volume = brightness (bananad)</text>
+<text x="20" y="598">Schematic: positions are indicative; names are the ones SDL reports.</text>
+</svg>
