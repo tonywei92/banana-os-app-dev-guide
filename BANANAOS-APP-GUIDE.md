@@ -216,8 +216,17 @@ These are the only interfaces to use (`src/levels.*`):
 - **The Mali-G52 may take no texture over 8192 px a side** (unverified); keep images at 4096 or under. *Why:* a
   texture that fails to upload is a black rectangle with no error on screen.
 - **OpenGL ES 2 through Mesa (Panfrost)** under KMSDRM; SDL's renderer uses it. Desktop GL is not there.
-- **Video decoding is software only.** The kernel has no `CONFIG_MEDIA_SUPPORT`, so no hardware decoders. *Why it
-  matters:* on four A55 cores up to 720p plays smoothly; above that, measure on the device before promising it.
+- **Video decoding is software only, and `modprobe` won't change that.** The RK3568 has two hardware decoders (Hantro
+  G1: H.264, MPEG-2, VP8; rkvdec: H.264, HEVC, VP9), but BananaOS's kernel is built with
+  `# CONFIG_MEDIA_SUPPORT is not set`: the V4L2 drivers aren't built at all, not even as modules, so there is no
+  `/dev/video*` and nothing to load. *Why:* the kernel keeps only what the boot path and the menu need. A request to
+  build them as modules (nothing loaded at boot) is open:
+  [JorreFog/BananaLinux#208](https://github.com/JorreFog/BananaLinux/issues/208).
+  - *What it means for you:* on the four A55 cores, H.264 up to 720p plays smoothly; 1080p and HEVC fall behind.
+    Measure on the device before promising a format. With FFmpeg/libmpv, leave hardware decoding off (`hwdec=no`):
+    probing for it only costs start time.
+  - *Be ready for it:* if you'd use it, check for a V4L2 decoder at run time (a `/dev/video*` whose driver is
+    `hantro-vpu` or `rockchip-vdec`) instead of assuming none, so a later BananaOS that ships the modules just works.
 
 ## SDL2, and using it efficiently
 
