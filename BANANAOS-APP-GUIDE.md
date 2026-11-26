@@ -91,6 +91,8 @@ What's in the starter:
 - **Nintendo layout.** SDL names face buttons by position, Xbox-style: the handheld's **A (east) arrives as
   `SDL_CONTROLLER_BUTTON_B`**, and B (south) as SDL's A. **X and Y arrive under their printed names** (not swapped).
   *Why it matters:* map by position and your "press A" hint answers to B.
+- **The rest** arrive under SDL's usual names: L1/R1 `SDL_CONTROLLER_BUTTON_LEFTSHOULDER`/`RIGHTSHOULDER`, the D-pad
+  `..._DPAD_UP/DOWN/LEFT/RIGHT`, Start `..._START`, Select `..._BACK` (`src/input.cpp`).
 - **L2 and R2 are trigger axes** (`SDL_CONTROLLER_AXIS_TRIGGERLEFT/RIGHT`, 0..32767), not buttons. The starter makes them
   buttons: down past half, up again only below a quarter. *Why the two lines:* a trigger resting near one line would
   press over and over.

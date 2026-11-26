@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 610" width="900" height="610" role="img" aria-labelledby="t d">
-<title id="t">The RG DS and RG DS Plus: two panels and the buttons with their SDL names</title>
-<desc id="d">Clamshell with the top panel (SDL display 0, no touch) above the bottom panel (display 1, touchscreen), and each control labelled with the name SDL gives it.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 775" width="900" height="775" role="img" aria-labelledby="t d">
+<title id="t">The RG DS Plus: two panels, the buttons and the edges, with the names SDL gives them</title>
+<desc id="d">Front view of the clamshell with the top panel (SDL display 0, no touch) above the bottom panel (display 1, touchscreen), then the back, right and front edges of the bottom half. Each control is labelled with its SDL name.</desc>
 <style>
 text{font:13px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:#6f7c8c}
 .b{font-weight:600;font-size:14px}
@@ -9,79 +9,120 @@ text{font:13px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-
 .key{fill:#78869a;fill-opacity:.25;stroke:#6f7c8c;stroke-width:1.5}
 .ln{stroke:#6f7c8c;stroke-width:1;fill:none;stroke-dasharray:3 3}
 .k{text-anchor:middle;font-weight:600;font-size:13px}
+.m{text-anchor:middle}
 .r{text-anchor:end}
+.dot{fill:#6f7c8c}
 </style>
 <!-- top half -->
-<rect class="body" x="270" y="40" width="360" height="235" rx="16"/>
-<rect class="scr" x="320" y="55" width="260" height="205" rx="6"/>
-<text class="k" x="450" y="152">top panel</text>
-<text class="k" x="450" y="172">display 0</text>
+<rect class="body" x="290" y="40" width="320" height="185" rx="14"/>
+<rect class="scr" x="340" y="55" width="220" height="155" rx="6"/>
+<text class="k" x="450" y="128">top panel</text>
+<text class="k" x="450" y="147">display 0</text>
+<circle class="dot" cx="312" cy="122" r="1.5"/><circle class="dot" cx="318" cy="128" r="1.5"/><circle class="dot" cx="312" cy="134" r="1.5"/><circle class="dot" cx="306" cy="128" r="1.5"/>
+<circle class="dot" cx="588" cy="122" r="1.5"/><circle class="dot" cx="594" cy="128" r="1.5"/><circle class="dot" cx="588" cy="134" r="1.5"/><circle class="dot" cx="582" cy="128" r="1.5"/>
 <!-- hinge -->
-<rect class="body" x="320" y="275" width="260" height="30" rx="6"/>
+<rect class="body" x="330" y="225" width="240" height="26" rx="8"/>
 <!-- bottom half -->
-<rect class="body" x="270" y="305" width="360" height="285" rx="16"/>
-<rect class="scr" x="320" y="320" width="260" height="205" rx="6"/>
-<text class="k" x="450" y="418">bottom panel</text>
-<text class="k" x="450" y="438">display 1 (touch)</text>
-<!-- shoulders and edge keys -->
-<rect class="key" x="284" y="34" width="56" height="12" rx="6"/>
-<rect class="key" x="560" y="34" width="56" height="12" rx="6"/>
-<rect class="key" x="264" y="130" width="12" height="44" rx="5"/>
-<circle class="key" cx="630" cy="150" r="8"/>
-<!-- left controls -->
-<circle class="key" cx="295" cy="400" r="17"/>
-<circle cx="295" cy="400" r="5" fill="#6f7c8c"/>
-<rect class="key" x="277" y="485" width="36" height="13" rx="6"/>
-<!-- face buttons -->
-<circle class="key" cx="605" cy="382" r="9"/><text class="k" x="605" y="387">X</text>
-<circle class="key" cx="623" cy="400" r="9"/><text class="k" x="623" y="405">A</text>
-<circle class="key" cx="605" cy="418" r="9"/><text class="k" x="605" y="423">B</text>
-<circle class="key" cx="587" cy="400" r="9"/><text class="k" x="587" y="405">Y</text>
-<rect class="key" x="587" y="485" width="36" height="13" rx="6"/>
-<!-- F -->
-<circle class="key" cx="450" cy="558" r="11"/><text class="k" x="450" y="563">F</text>
+<rect class="body" x="270" y="251" width="360" height="226" rx="14"/>
+<rect class="scr" x="345" y="265" width="210" height="160" rx="6"/>
+<text class="k" x="450" y="340">bottom panel</text>
+<text class="k" x="450" y="359">display 1 (touch)</text>
+<!-- LEDs at the hinge -->
+<rect class="key" x="598" y="256" width="6" height="9" rx="2"/><rect class="key" x="610" y="256" width="6" height="9" rx="2"/>
+<!-- D-pad -->
+<path class="key" d="M299 287 h16 v10 h10 v16 h-10 v10 h-16 v-10 h-10 v-16 h10 z" transform="translate(0 -10)"/>
+<!-- stick -->
+<circle class="key" cx="307" cy="375" r="17"/><circle class="dot" cx="307" cy="375" r="5"/>
+<!-- two small buttons -->
+<circle class="key" cx="290" cy="448" r="8"/><text class="k" x="290" y="453">F</text>
+<circle class="key" cx="320" cy="448" r="8"/><text class="k" x="320" y="453">?</text>
+<!-- ABXY -->
+<circle class="key" cx="593" cy="292" r="9"/><text class="k" x="593" y="297">X</text>
+<circle class="key" cx="611" cy="310" r="9"/><text class="k" x="611" y="315">A</text>
+<circle class="key" cx="593" cy="328" r="9"/><text class="k" x="593" y="333">B</text>
+<circle class="key" cx="575" cy="310" r="9"/><text class="k" x="575" y="315">Y</text>
+<!-- start / select -->
+<rect class="key" x="575" y="400" width="36" height="12" rx="6"/>
+<rect class="key" x="575" y="423" width="36" height="12" rx="6"/>
 
 <!-- left labels -->
-<path class="ln" d="M262 40 H284"/>
-<text class="r b" x="255" y="45">L2</text>
-<text class="r" x="255" y="63">AXIS_TRIGGERLEFT, 0..32767</text>
-<text class="r" x="255" y="80">an axis the starter turns into a button</text>
-<text class="r b" x="255" y="108">Top panel: SDL display 0</text>
-<text class="r" x="255" y="126">the main screen, no touch</text>
-<path class="ln" d="M262 152 H264"/>
-<text class="r b" x="255" y="152">Volume keys</text>
-<text class="r" x="255" y="170">bananad's, not yours:</text>
-<text class="r" x="255" y="187">it writes /run/banana/osd</text>
-<text class="r b" x="255" y="330">Bottom panel: SDL display 1</text>
-<text class="r" x="255" y="348">the touchscreen, read from evdev</text>
-<path class="ln" d="M262 400 H276"/>
-<text class="r b" x="255" y="392">L3</text>
-<text class="r" x="255" y="410">SDL_CONTROLLER_BUTTON_LEFTSTICK</text>
-<text class="r" x="255" y="427">the stick: LEFTX / LEFTY</text>
-<text class="r" x="255" y="444">no right stick</text>
-<path class="ln" d="M262 492 H276"/>
-<text class="r b" x="255" y="497">Select</text>
+<text class="r b" x="255" y="95">Top panel: SDL display 0</text>
+<text class="r" x="255" y="113">the main screen, no touch,</text>
+<text class="r" x="255" y="131">a speaker on each side</text>
+<text class="r b" x="255" y="262">Bottom panel: SDL display 1</text>
+<text class="r" x="255" y="280">the touchscreen, read from evdev</text>
+<path class="ln" d="M262 300 H287"/>
+<text class="r b" x="255" y="304">D-pad</text>
+<text class="r" x="255" y="322">BUTTON_DPAD_UP/DOWN/LEFT/RIGHT</text>
+<path class="ln" d="M262 375 H287"/>
+<text class="r b" x="255" y="370">L3</text>
+<text class="r" x="255" y="388">SDL_CONTROLLER_BUTTON_LEFTSTICK</text>
+<text class="r" x="255" y="406">the stick: LEFTX / LEFTY</text>
+<text class="r" x="255" y="424">no right stick</text>
+<path class="ln" d="M262 448 H280"/>
+<text class="r b" x="255" y="445">F = Home / Menu</text>
+<text class="r" x="255" y="463">SDL_CONTROLLER_BUTTON_GUIDE</text>
+<text class="r" x="255" y="481">? = the other small button</text>
 
 <!-- right labels -->
-<path class="ln" d="M618 40 H645"/>
-<text class="b" x="650" y="45">R2</text>
-<text x="650" y="63">AXIS_TRIGGERRIGHT, 0..32767</text>
-<path class="ln" d="M638 150 H645"/>
-<text class="b" x="650" y="140">Power</text>
-<text x="650" y="158">bananad sleeps the handheld</text>
-<text x="650" y="175">(SIGSTOP now, SIGCONT on wake)</text>
-<path class="ln" d="M633 400 H645"/>
-<text class="b" x="650" y="352">Face buttons (Nintendo layout)</text>
-<text x="650" y="374">A (east)   arrives as ..._BUTTON_B</text>
-<text x="650" y="392">B (south) arrives as ..._BUTTON_A</text>
-<text x="650" y="410">X arrives as ..._BUTTON_X</text>
-<text x="650" y="428">Y arrives as ..._BUTTON_Y</text>
-<text x="650" y="446">Map by position, not by name.</text>
-<path class="ln" d="M625 492 H645"/>
-<text class="b" x="650" y="497">Start</text>
-<path class="ln" d="M461 558 H645"/>
-<text class="b" x="650" y="540">F = GUIDE, shared with the OS</text>
-<text x="650" y="558">SDL_CONTROLLER_BUTTON_GUIDE</text>
-<text x="650" y="575">F + Volume = brightness (bananad)</text>
-<text x="20" y="598">Schematic: positions are indicative; names are the ones SDL reports.</text>
+<path class="ln" d="M570 238 H645"/>
+<text class="b" x="650" y="236">Multi-angle hinge</text>
+<path class="ln" d="M617 261 H645"/>
+<text x="650" y="262">Two status LEDs</text>
+<path class="ln" d="M622 310 H645"/>
+<text class="b" x="650" y="296">Face buttons (Nintendo layout)</text>
+<text x="650" y="314">A (east)   arrives as BUTTON_B</text>
+<text x="650" y="332">B (south) arrives as BUTTON_A</text>
+<text x="650" y="350">X, Y arrive as BUTTON_X, BUTTON_Y</text>
+<path class="ln" d="M617 406 H645"/>
+<text class="b" x="650" y="411">Start</text>
+<text x="715" y="411">BUTTON_START</text>
+<path class="ln" d="M617 429 H645"/>
+<text class="b" x="650" y="434">Select</text>
+<text x="715" y="434">BUTTON_BACK</text>
+
+<!-- back edge -->
+<text class="r b" x="255" y="507">Back edge, from above</text>
+<text class="r" x="255" y="525">L2: AXIS_TRIGGERLEFT</text>
+<text class="r" x="255" y="543">L1: BUTTON_LEFTSHOULDER</text>
+<rect class="body" x="270" y="510" width="360" height="32" rx="8"/>
+<rect class="key" x="278" y="515" width="40" height="22" rx="6"/><text class="k" x="298" y="531">L2</text>
+<rect class="key" x="324" y="515" width="40" height="22" rx="6"/><text class="k" x="344" y="531">L1</text>
+<rect class="key" x="410" y="520" width="80" height="12" rx="6"/><text class="k" x="450" y="560" style="font-weight:400">USB-C</text>
+<rect class="key" x="536" y="515" width="40" height="22" rx="6"/><text class="k" x="556" y="531">R1</text>
+<rect class="key" x="582" y="515" width="40" height="22" rx="6"/><text class="k" x="602" y="531">R2</text>
+<text class="b" x="650" y="507">USB-C in the middle</text>
+<text x="650" y="525">R2: AXIS_TRIGGERRIGHT</text>
+<text x="650" y="543">R1: BUTTON_RIGHTSHOULDER</text>
+
+<!-- right edge -->
+<text class="r b" x="255" y="590">Right edge</text>
+<text class="r" x="255" y="608">front on the left, back on the right</text>
+<rect class="body" x="270" y="580" width="360" height="26" rx="8"/>
+<rect class="key" x="300" y="586" width="40" height="14" rx="7"/>
+<rect class="key" x="590" y="575" width="6" height="9" rx="2"/><rect class="key" x="602" y="575" width="6" height="9" rx="2"/>
+<text class="m" x="320" y="625">Power</text>
+<text class="b" x="650" y="590">Power</text>
+<text x="650" y="608">bananad sleeps the handheld</text>
+<text x="650" y="626">(SIGSTOP now, SIGCONT on wake)</text>
+
+<!-- left edge -->
+<text class="r b" x="255" y="660">Left edge</text>
+<text class="r" x="255" y="678">front on the left, hinge on the right</text>
+<rect class="body" x="270" y="650" width="360" height="26" rx="8"/>
+<rect class="key" x="310" y="656" width="40" height="14" rx="3"/>
+<rect class="key" x="520" y="654" width="64" height="18" rx="9"/><text class="k" x="534" y="667">&#8722;</text><text class="k" x="570" y="667">+</text>
+<text class="m" x="330" y="695">microSD (likely)</text>
+<text class="m" x="552" y="695">Volume</text>
+<text class="b" x="650" y="660">Volume rocker</text>
+<text x="650" y="678">+ nearer the hinge, &#8722; below it;</text>
+<text x="650" y="696">bananad's keys, not yours</text>
+
+<!-- front edge -->
+<text class="r b" x="255" y="737">Front edge</text>
+<rect class="body" x="270" y="720" width="360" height="22" rx="8"/>
+<circle class="key" cx="450" cy="731" r="5"/>
+<path class="ln" d="M456 731 H645"/>
+<text x="650" y="736">3.5 mm headphone jack</text>
+<text x="20" y="765">BUTTON_x is SDL_CONTROLLER_BUTTON_x. Layout simplified.</text>
 </svg>
